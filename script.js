@@ -66,7 +66,6 @@ function generatePassword() {
     //debugging
     console.log("special character "+ spcharPr);
     
-    for
 }
 
 
