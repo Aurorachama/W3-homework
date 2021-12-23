@@ -18,8 +18,8 @@ function generatePassword() {
   var upcase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var lowcase = "abcdefghijklmnopqrstuvwxyz";
   var numeric = "0123456789";
-  // # , " and $ not included
-  var spchar = " !%'()*+,-./:;<=>?@[\]^_`{|}~";
+  // " not included
+  var spchar = " !%'()$,#*+,-./:;<=>?@[\]^_`{|}~";
 
 // debugging
   console.log("prompt start");
