@@ -11,23 +11,17 @@ function writePassword() {
 
 
 // the password generation function
-function generatePassword() {
 
+function generatePassword() {
+  var passwordArray= "";
+  var character = "";
   var upcase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var lowcase = "abcdefghijklmnopqrstuvwxyz"
-  var number = "0123456789";
+  var lowcase = "abcdefghijklmnopqrstuvwxyz";
+  var numeric = "0123456789";
   // # , " and $ not included
   var spchar = " !%'()*+,-./:;<=>?@[\]^_`{|}~";
 
-// Pseudocode/idea: either if moves on, else stops; or if stops else moves on
-// considerations: the clarity, organization of the code? the logic?
-
-// how about a for loop? yes? no?
-// yo, while loop?
-
 // debugging
-// Confirmed: the function is running as intended 
-// safe to delete this
   console.log("prompt start");
 
   // first prompt (length of password)
@@ -49,7 +43,7 @@ function generatePassword() {
     console.log("upper case " + upcasePr);
 
     //third prompt (lowercase)
-    var lowcasePr = window.confirm("click OK to include Uppercase Letter");
+    var lowcasePr = window.confirm("click OK to include Lowercase Letter");
 
     //debugging
     console.log("lower case "+ lowcasePr);
@@ -65,16 +59,47 @@ function generatePassword() {
 
     //debugging
     console.log("special character "+ spcharPr);
+
+    //WIP
+  }
+  else{
+    // debugging
+      console.log("length check fails");
     
-}
+      window.alert("Please try again. Length of Password must bewteen 8 and 128");
+      }
+
+      var length = lengthPr;
+
+  while (passwordArray.length < lengthPr){
+
+  item1 = Math.ceil(lowcase.length * Math.random()*Math.random());
+  item2 = Math.ceil(upcase.length * Math.random()*Math.random());
+  item3 = Math.ceil(numeric.length * Math.random()*Math.random());
+  item4 = Math.ceil(spchar.length * Math.random()*Math.random());
+  //hold = lowcase.charAt(item1);
+  //character += hold;
+  //character += upcase.charAt(item2);
+  var hold;
+  hold = (lowcasePr) ? (lowcase.charAt(item1)) : ("");  
+  character += hold;
+  character += (upcasePr) ? (upcase.charAt(item2)) : (""); 
+
+  character += (numPr)? (numeric.charAt(item3)) : ("");
+  character += (spcharPr)? (spchar.charAt(item4)) : ("");
+  passwordArray = character;
+  console.log(passwordArray);
+  }
+
+  //character += numeric.charAt(item3);
+  //character += spchar.charAt(item4);
+  
 
 
-else{
-// debugging
-  console.log("length check fails");
 
-  window.alert("Please try again. Length of Password must bewteen 8 and 128");
-}
+  //passwordArray = passwordArray.split('').sort(function(){return 0.5-Math.random()}).join('');  
+console.log(passwordArray);
+return passwordArray.substring(0,length);
 
 }
 
